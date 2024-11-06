@@ -607,6 +607,28 @@ For a stronger version of `Dash.includes`, use [Dash.some](#some).
 
 <hr>
 
+### iterable
+
+Creates a stateful iterator for the _input_ Table, first visting ordered numeric keys 1..n
+and then the remaining unordered keys in any order.
+
+@see Dash.iterator - for an iterator that can iterate over an iterable.
+
+<hr>
+
+### iterator
+
+Iterates using a `pairs` iterator for an _input_ Table if zero length, otherwise an `ipairs`
+iterator for an array.
+
+If _input_ is a function it is used as a stateful iterator instead.
+
+This function can be used to build behaviour that iterates over both arrays and Maps.
+
+@see Dash.iterable if you want to iterate over a Table with numeric but un-ordered keys.
+
+<hr>
+
 ### keyBy
 
 <span class="tags">
@@ -1123,6 +1145,14 @@ Output: {
 }
 ]]
 ```
+
+<hr>
+
+### zip
+
+Returns iterator over two given arrays that produces pair of elements with the same index from both arrays
+
+Iterator stops when the shortest array ends, i.e. when it encounters nil in one of the arrays
 
 <hr>
 
