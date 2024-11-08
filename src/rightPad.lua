@@ -7,6 +7,32 @@
 	@example rightPad("2", 2, "!") --> "2!"
 	@example rightPad("toast", 10, ":)") --> "toast:):):"
 ]]
+--[=[
+
+	```lua
+	rightPad(input: string, length: number, suffix: string?): string
+	```
+	
+	Makes a string of `length` from `input` by repeating characters from `suffix` at the end of the string.
+	
+	By default, suffix is `" "`.
+	
+	**Examples**
+	
+	```lua
+	rightPad("toast", 6) --> "toast "
+	```
+	
+	```lua
+	rightPad("2", 2, "!") --> "2!"
+	```
+	
+	```lua
+	rightPad("toast", 10, ":)") --> "toast:):):"
+	```
+
+]=]
+
 local function rightPad(input: string, length: number, suffix: string?): string
 	local definedSuffix = suffix or " "
 	local padLength = length - input:len()

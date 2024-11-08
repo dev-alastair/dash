@@ -42,6 +42,56 @@ local defaultConstructor: Constructor<> = function()
 	return {}
 end
 
+--[=[
+
+	Create a class called _name_ with the specified _constructor_. The constructor should return a
+	plain table which will be turned into an instance of _Class_ from a call to `Class.new(...)`.
+	
+	**Instance Methods**
+	
+	| Name                          | Description                                                               |
+	| ----------------------------- | ------------------------------------------------------------------------- |
+	| `:toString(): string`         | Returns a string representation of the class                              |
+	| `:equals(other: any):boolean` | Returns `true` if the instance is equal to _other_                        |
+	| `:_init()`                    | A private function which is called once the instance has been initialized |
+	
+	**Static Methods**
+	
+	| Name                               | Description                                           |
+	| ---------------------------------- | ----------------------------------------------------- |
+	| `.new(...): Table`                 | Returns a new instance of the class                   |
+	| `.isInstance(value: any): boolean` | Returns `true` if _value_ is an instance of the class |
+	
+	**Examples**
+	
+	```lua
+	-- Create a simple Vehicle class
+	local Vehicle = class("Vehicle", function(wheelCount: number) return
+		{
+			speed = 0,
+			wheelCount = wheelCount
+		}
+	end)
+	function Vehicle:drive(speed)
+		self.speed = speed
+	end
+	-- Create a car instance
+	local car = Vehicle.new(4)
+	car.wheelCount --> 4
+	car.speed --> 0
+	-- Drive the car
+	car:drive(10)
+	car.speed --> 10
+	```
+	
+	**Usage**
+	
+	- When using Dash classes, private fields should be prefixed with `_` to avoid accidental access.
+	- A private field should only be accessed by a method of the class itself, though Dash does not restrict this in code.
+	- Public fields are recommended when there is no complex access logic e.g. `position.x`
+
+]=]
+
 local function class<T...>(name: string, constructor: Constructor<T...>?)
 	local classConstructor = constructor or defaultConstructor
 	local Class = {

@@ -8,6 +8,15 @@
 local Dash = script.Parent
 local Types = require(Dash.Types)
 
+--[=[
+
+	Creates a stateful iterator for the _input_ Table, first visting ordered numeric keys 1..n
+	and then the remaining unordered keys in any order.
+	
+	@see Dash.iterator - for an iterator that can iterate over an iterable.
+
+]=]
+
 local function iterable(input: Types.Table): Types.AnyFunction
 	local currentIndex = 1
 	local inOrderedKeys = true

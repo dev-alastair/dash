@@ -9,6 +9,30 @@
 
 local Dash = script.Parent
 
+--[=[
+
+	```lua
+	formatValue(value: any, displayString: string): string
+	```
+	
+	Format a specific _value_ using the specified _displayString_.
+	
+	**Examples**
+	
+	```lua
+	formatValue(255, "06X") --> "0000FF"
+	```
+	
+	```lua
+	formatValue(255.5) --> "255.5"
+	```
+	
+	**See**
+	
+	- [Dash.format](#format) - see format for a full description of valid display strings.
+
+]=]
+
 local function formatValue(value: any, displayString: string): string
 	displayString = displayString or ""
 	-- Inline require to prevent infinite require cycle

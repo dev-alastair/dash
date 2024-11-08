@@ -33,6 +33,41 @@ local MissingKey: any = Error.new("MissingKey", "Attempted to read missing key {
 -- TODO Luau: Support generic extends syntax
 -- TODO: Can this be moved to under Tables?
 -- TYPED: local function freeze<T extends Types.Table>(objectName: string, object: T, throwIfMissing: boolean?): T
+--[=[
+
+	```lua
+	freeze(objectName: string, object: Types.Table, throwIfMissing: boolean?): Types.Table
+	```
+	
+	Returns a new read-only view of _object_ which prevents any values from being changed.
+	
+	**Parameters**
+	
+	| Name             | Description                                                    |
+	| ---------------- | -------------------------------------------------------------- |
+	| `name`           | The name of the object for improved error message readability. |
+	| `throwIfMissing` | If `true` then access to a missing key will also throw.        |
+	
+	**Notes**
+	
+	Unfortunately you cannot iterate using `pairs` or `ipairs` on frozen objects because Luau doesn't support defining these custom iterators in metatables.
+	
+	**Example**
+	
+	```lua
+	local drink = freeze("Ice Cream", {
+		flavor = "mint",
+		topping = "sprinkles"
+	}, true)
+	print(drink.flavor) --> "mint"
+	drink.flavor = "vanilla"
+	--!> ReadonlyKey: Attempt to write to readonly key "flavor" (a string) of frozen object "Ice Cream"
+	print(drink.syrup) --> nil
+	--!> MissingKey: Attempt to read missing key "syrup" (a string) of frozen object "Ice Cream"
+	```
+
+]=]
+
 local function freeze(objectName: string, object: Types.Table, throwIfMissing: boolean?)
 	-- We create a proxy so that the underlying object is not affected
 	local proxy = {}

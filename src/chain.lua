@@ -3,6 +3,17 @@
 	then proceeds to the next iterator, until all the iterators are exhausted.
 ]]
 
+--[=[
+
+	```lua
+	chain("test":gmatch("t"), "test":gmatch("e"))
+	```
+	
+	Returns a stateful iterator that returns elements from the first iterable until it is exhausted,
+	then proceeds to the next iterator, until all the iterators are exhausted.
+
+]=]
+
 local function chain<T>(...: () -> T): () -> T?
 	local iterators = { ... }
 	local iterators_count = #iterators

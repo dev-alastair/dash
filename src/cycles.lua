@@ -32,6 +32,27 @@ end
 
 -- TODO Luau: Improve type inference to a point that this definition does not produce so many type errors
 -- TYPED: local function cycles(value: any, depth: number?, initialCycles: Cycles?): Cycles
+--[=[
+
+	```lua
+	cycles(value: any, initialCycles: Cycles?): Cycles
+	```
+	
+	Get information about the number of times references to the same table values appear in a data structure.
+	
+	Operates on cyclic structures, and returns a Cycles object for a given _value_ by walking it recursively.
+	
+	**Cycles**
+	
+	| Name      | Type                 | Description                                         |
+	| --------- | -------------------- | --------------------------------------------------- |
+	| `omit`    | `{ any }`            | An array of keys which should not be visited        |
+	| `visited` | `Set<Table>`         | A set of tables which were visited recursively      |
+	| `refs`    | `Map<Table, number>` | A map from table to unique index in visit order     |
+	| `nextRef` | `number`             | The number to use for the next unique table visited |
+
+]=]
+
 local function cycles(input: any, depth: number?, initialCycles: any): Cycles?
 	if depth == -1 then
 		return initialCycles

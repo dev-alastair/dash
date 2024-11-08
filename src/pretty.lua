@@ -189,6 +189,36 @@ end
 
 -- TODO Luau: Improve type inference to a point that this definition does not produce so many type errors
 -- pretty = function(object: any, options: PrettyOptions?): string
+--[=[
+
+	```lua
+	pretty(object: any, options: PrettyOptions?): string
+	```
+	
+	Return a pretty string serialization of _object_.
+	
+	This implementation deals with cycles in tables and can neatly display metatables.
+	
+	Optionally use an indented multiline string, limit the depth of tables, omit or pick keys.
+	
+	**PrettyOptions**
+	
+	| Name        | Type          | Description                                                                                 |
+	| ----------- | ------------- | ------------------------------------------------------------------------------------------- |
+	| `depth`     | `number?`     | The maximum depth of ancestors of a table to display                                        |
+	| `omit`      | `{ any }?`    | An array of keys which should not be visited                                                |
+	| `multiline` | `boolean?`    | Whether to use multiple lines (default = false)                                             |
+	| `noQuotes`  | `boolean?`    | Whether to drop the quotation marks around strings. By default, this is true for table keys |
+	| `indent`    | `string?`     | The indent string to use (default = "\t")                                                   |
+	| `visited`   | `Set<Table>?` | A set of tables which have already been visited and should be referred to by reference      |
+	| `cycles`    | `Cycles?`     | A cycles object returned from `cycles` to aid reference display                             |
+	
+	**See**
+	
+	- [Dash.cycles](#cycles)
+
+]=]
+
 pretty = function(object: any, options: any): string
 	return concat(prettyLines(object, options), "\n")
 end

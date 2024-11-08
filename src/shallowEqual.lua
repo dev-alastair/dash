@@ -2,6 +2,49 @@
 	Returns `true` if the _left_ and _right_ values are equal (by the equality operator) or the
 	inputs are tables, and all their keys are equal.
 ]]
+--[=[
+
+	```lua
+	shallowEqual(left: any, right: any): boolean
+	```
+	
+	Returns `true` if the _left_ and _right_ values are equal (by the equality operator) or the
+	inputs are tables, and all their keys are equal.
+	
+	**Examples**
+	
+	```lua
+	Dash.shallowEqual({
+		A = 1,
+		B = 2
+	}, {
+		A = 1,
+		B = 2,
+	})
+	
+	--[[
+	Output: true
+	]]
+	```
+	
+	```lua
+	Dash.shallowEqual({
+		A = 1,
+		B = 2,
+		C = 3
+	}, {
+		A = 1,
+		B = 2,
+		D = 3
+	})
+	
+	--[[
+	Output: false
+	]]
+	```
+
+]=]
+
 local function shallowEqual(left: any, right: any)
 	if left == right then
 		return true

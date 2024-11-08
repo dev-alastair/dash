@@ -4,6 +4,55 @@
 ]]
 local insert = table.insert
 
+--[=[
+
+	```lua
+	splitOn(input: string, pattern: string): { string }
+	```
+	
+	Splits _input_ into parts based on a _pattern_ delimiter and returns a [Table](#table) of the parts,
+	followed by a [Table](#table) of the matched delimiters.
+	
+	**Example**
+	
+	```lua
+	local parts, delimeters = Dash.splitOn(
+		"The quick brown fox jumps over the lazy dog",
+		" "
+	)
+	
+	print(parts)
+	--[[
+	Output: {
+		[1] = "The",
+		[2] = "quick",
+		[3] = "brown",
+		[4] = "fox",
+		[5] = "jumps",
+		[6] = "over",
+		[7] = "the",
+		[8] = "lazy",
+		[9] = "dog"
+	}
+	]]
+	
+	print(delimeters)
+	--[[
+	{
+		[1] = " ",
+		[2] = " ",
+		[3] = " ",
+		[4] = " ",
+		[5] = " ",
+		[6] = " ",
+		[7] = " ",
+		[8] = " "
+	}
+	]]
+	```
+
+]=]
+
 local function splitOn(input: string, pattern: string): { string }
 	local parts = {}
 	local delimiters = {}

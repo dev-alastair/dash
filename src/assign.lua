@@ -46,6 +46,61 @@ local Types = require(Dash.Types)
 local forEach = require(Dash.forEach)
 local forEachArgs = require(Dash.forEachArgs)
 
+--[=[
+
+	```lua
+	assign<Key, Value>(target: Types.Map<Key, Value>, ...: Types.Map<Key, Value>): Types.Map<Key, Value>
+	```
+	
+	Adds new values to _target_ from subsequent [Table](#table) arguments in left-to-right order.
+	
+	**Examples**
+	
+	```lua
+	local characters = {
+		Frodo = {
+			name = "Frodo Baggins",
+			team = "blue"
+		},
+		Boromir = {
+			score = 5
+		}
+	}
+	local otherCharacters = {
+		Frodo = {
+			team = "red",
+			score = 10
+		},
+		Bilbo = {
+			team = "yellow",
+		},
+		Boromir = {
+			score = {1, 2, 3}
+		}
+	}
+	local result = assign(characters, otherCharacters)
+	print(result) --[[
+	--> {
+		Frodo = {
+			team = "red",
+			score = 10
+		},
+		Bilbo = {
+			team = "yellow"
+		},
+		Boromir = {
+			score = {1, 2, 3}
+		}
+	}
+	]]
+	```
+	
+	**See**
+	
+	- [Dash.join](#join) for an immutable alternative
+
+]=]
+
 local function assign<Key, Value>(target: Types.Map<Key, Value>, ...: Types.Map<Key, Value>): Types.Map<Key, Value>
 	-- Iterate through the varags in order
 	forEachArgs(function(input: Types.Map<Key, Value>?)
