@@ -1,0 +1,23 @@
+[package]
+name = "jsdotlua/jest-runner"
+version = "3.6.1-rc.2"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+license = "MIT"
+
+[dependencies]
+chalk = "jsdotlua/chalk@^0.2.1"
+emittery = "jsdotlua/emittery@3.6.1-rc.2"
+"jest-circus" = "jsdotlua/jest-circus@3.6.1-rc.2"
+"jest-console" = "jsdotlua/jest-console@3.6.1-rc.2"
+"jest-environment" = "jsdotlua/jest-environment@3.6.1-rc.2"
+"jest-message-util" = "jsdotlua/jest-message-util@3.6.1-rc.2"
+"jest-roblox-shared" = "jsdotlua/jest-roblox-shared@3.6.1-rc.2"
+"jest-runtime" = "jsdotlua/jest-runtime@3.6.1-rc.2"
+"jest-test-result" = "jsdotlua/jest-test-result@3.6.1-rc.2"
+"jest-types" = "jsdotlua/jest-types@3.6.1-rc.2"
+"jest-util" = "jsdotlua/jest-util@3.6.1-rc.2"
+"luau-polyfill" = "jsdotlua/luau-polyfill@^1.2.6"
+"pretty-format" = "jsdotlua/pretty-format@3.6.1-rc.2"
+promise = "jsdotlua/promise@^3.5.0"
+throat = "jsdotlua/throat@3.6.1-rc.2"

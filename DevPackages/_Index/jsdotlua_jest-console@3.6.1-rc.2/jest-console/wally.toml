@@ -1,0 +1,16 @@
+[package]
+name = "jsdotlua/jest-console"
+version = "3.6.1-rc.2"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+license = "MIT"
+
+[dependencies]
+chalk = "jsdotlua/chalk@^0.2.1"
+"jest-each" = "jsdotlua/jest-each@3.6.1-rc.2"
+"jest-message-util" = "jsdotlua/jest-message-util@3.6.1-rc.2"
+"jest-mock" = "jsdotlua/jest-mock@3.6.1-rc.2"
+"jest-roblox-shared" = "jsdotlua/jest-roblox-shared@3.6.1-rc.2"
+"jest-types" = "jsdotlua/jest-types@3.6.1-rc.2"
+"jest-util" = "jsdotlua/jest-util@3.6.1-rc.2"
+"luau-polyfill" = "jsdotlua/luau-polyfill@^1.2.6"

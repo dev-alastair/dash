@@ -1,0 +1,12 @@
+[package]
+name = "jsdotlua/jest-environment"
+version = "3.6.1-rc.2"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+license = "MIT"
+
+[dependencies]
+"jest-fake-timers" = "jsdotlua/jest-fake-timers@3.6.1-rc.2"
+"jest-mock" = "jsdotlua/jest-mock@3.6.1-rc.2"
+"jest-types" = "jsdotlua/jest-types@3.6.1-rc.2"
+"luau-polyfill" = "jsdotlua/luau-polyfill@^1.2.6"

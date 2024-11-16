@@ -18,3 +18,15 @@ dash-wally can be installed using wally. For example:
 [dependencies]
 dash = "dev-alastair/dash@1.1.1"
 ```
+
+## Details
+
+### Run tests
+
+_(requires `FFLagEnableLoadModule`, see: [issue](https://github.com/jsdotlua/jest-lua/issues/6), [more info](https://devforum.roblox.com/t/fast-flags-clientappsettingsjson-folder-locations-for-most-os-eg-windows-macos-android-and-ios/3180597))_ 
+
+```bash
+rojo build .\suites\tests.project.json --output .\suites\tests.rbxl
+run-in-roblox --place .\suites\tests.rbxl --script .\suites\run-tests.lua
+rmdir .\suites\tests.rbxl 
+```

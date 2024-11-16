@@ -1,0 +1,24 @@
+{
+	"name": "Dash Test Place",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+            "Packages": {
+                "$className": "Folder",
+                "Dash": {
+                    "$path": "../src",
+                    "jest.config": {
+                        "$path": "jest.config.lua"
+                    },
+                    "Tests": {
+                        "$path": "../tests"
+                    }
+                },
+                "Dev": {
+                    "$path": "../DevPackages"
+                }
+            }
+		}
+	}
+}
