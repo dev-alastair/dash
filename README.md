@@ -16,10 +16,14 @@ dash-wally can be installed using wally. For example:
 
 ```toml
 [dependencies]
-dash = "dev-alastair/dash@1.1.1"
+dash = "dev-alastair/dash@1.1.2"
 ```
 
 ## Details
+
+### Error and Symbol typing
+
+In the original package, the types of `Error` and `Symbol` (and therefore `None`) are `*error-type*` due to bad typing of the `dash.class` function. Here they are explicitly re-typed to expose their most useful attributes. This does, however, conceal some of the functionality provided by `dash.class`, such as the inclusion of metamethods and the `_init` method.
 
 ### Run tests
 
